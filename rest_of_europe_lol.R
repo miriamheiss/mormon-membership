@@ -7,8 +7,16 @@ member_population <- read.csv("files/membership_and_population.csv")
 member_population_clean <- member_population |>
   select(Country, Area, Members, Population, X2022, X.LDS)
 
+east_europe <- member_population_clean |> 
+  filter(Area == "Europe East")
+
 central_europe <- member_population_clean |> 
   filter(Area == "Europe Central")
+
+unassigned <- member_population_clean |> 
+  filter(Area == "Unassigned**")
+
+europe <- rbind(east_europe, central_europe, unassigned)
 
 central_europe |> 
   ggplot(aes(x = Members, y = Country))+ 

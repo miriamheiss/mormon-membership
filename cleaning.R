@@ -12,13 +12,3 @@ member_population_clean |>
          y = Country)) +
   geom_point()+
   facet_wrap(~ Area)
-
-north_europe <- member_population_clean |> 
-  filter(Area == "Europe North")
-
-east_europe <- member_population_clean |> 
-  filter(Area == "Europe East")
-
-central_europe <- member_population_clean |> 
-  filter(Area == "Europe Central")
-
