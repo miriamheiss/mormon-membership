@@ -18,17 +18,17 @@ unassigned <- member_population_clean |>
 
 europe <- rbind(east_europe, central_europe, unassigned)
 
-central_europe |> 
+europe |> 
   ggplot(aes(x = Members, y = Country))+ 
   geom_point()+
   theme_bw()+
   theme(axis.text.x = element_text(angle = 90, hjust = 0.5, vjust = 0.5))
 
-central_percent <- central_europe |> 
+member_percent <- europe |> 
   ggplot(aes(x = Country, y = Population, text = X.LDS, words = Members))+
   geom_point()+
   theme_bw()+
   theme(axis.text.x = element_text(angle = 90, hjust = 0.5, vjust = 0.5))
 
-ggplotly(central_percent, tooltip = c("text", "words"))
+ggplotly(member_percent, tooltip = c("text", "words"))
 
